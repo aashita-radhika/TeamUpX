@@ -1,0 +1,126 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head><title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <input type="text" placeholder="Username" id="username" required><br>
+        <input type="email" placeholder="Email" id="email" required><br>
+        <input type="password" placeholder="Password" id="password" required><br>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const res = await fetch('http://localhost:5000/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+        if (res.status === 201) {
+            alert('Registered! Now login.');
+            window.location.href = 'login.html';
+        } else {
+            alert(data.msg || 'Error');
+        }
+    });
+    </script>
+</body>
+</html> -->
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <input type="text" placeholder="Username" id="username" required><br>
+        <input type="email" placeholder="Email" id="email" required><br>
+        <input type="password" placeholder="Password" id="password" required><br>
+        <input type="text" placeholder="Full Name" id="fullName" required><br>
+        <input type="text" placeholder="College" id="college"><br>
+        <input type="text" placeholder="Year of Study" id="yearOfStudy"><br>
+        <input type="text" placeholder="Skills (comma-separated)" id="skills"><br>
+        <textarea placeholder="Past Experience" id="pastExperience"></textarea><br>
+        <textarea placeholder="Achievements" id="achievements"></textarea><br>
+        <input type="text" placeholder="GitHub Profile URL" id="github"><br>
+        <input type="url" placeholder="Resume URL (e.g., Google Drive)" id="resume"><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const userData = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            fullName: document.getElementById('fullName').value,
+            college: document.getElementById('college').value,
+            yearOfStudy: document.getElementById('yearOfStudy').value,
+            skills: document.getElementById('skills').value,
+            pastExperience: document.getElementById('pastExperience').value,
+            achievements: document.getElementById('achievements').value,
+            github: document.getElementById('github').value,
+            resume: document.getElementById('resume').value
+        };
+
+        try {
+            const res = await fetch('http://127.0.0.1:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
+            });
+
+            const data = await res.json();
+            if (res.status === 201) {
+                alert('Registered! Now login.');
+                window.location.href = 'login.html';
+            } else {
+                alert(data.msg || 'Registration failed.');
+            }
+        } catch (err) {
+            alert('Error: ' + err.message);
+        }
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <script src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to TeamUpX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #14213d, #1d3557);
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 720px;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #fca311;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.25s, background 0.3s;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(252, 163, 17, 0.4);
+    }
+
+    .btn:hover {
+      background-color: #ff9900;
+      transform: translateY(-3px);
+    }
+
+    /* Decorative Circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .circle:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 5%;
+    }
+
+    .circle:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      bottom: 8%;
+      right: 10%;
+    }
+
+    .circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      top: 75%;
+      left: 20%;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Decorative floating circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="container">
+    <h1>Welcome to TeamUpX!</h1>
+    <p>TeamUpX is your go-to platform for finding the perfect teammates for hackathons, group projects, and collaborative coding.  
+    Join forces with fellow innovators, share skills, and win together.</p>
+    <div class="button-group">
+      <a href="./login/login.html" class="btn">Login</a>
+      <a href="./register/register.html" class="btn">Sign Up</a>
+    </div>
+  </div>
+</body>
+</html>

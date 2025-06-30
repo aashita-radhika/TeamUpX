@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find Teammates</title>
+  <link rel="stylesheet" href="team.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+        <div class="logo">TeamUpX</div>
+        <ul class="nav-links">
+            <li><a href="../homepage.html">Home</a></li>
+            <li><a href="../profile/profile.html">Create Profile</a></li>
+            <li><a href="../FindTeam/team.html">Find Teammates</a></li>
+            <li><a href="../Discussion/chat.html">Join Discussion Forum</a></li>
+            <!-- <li><a href="#">Explore Projects</a></li> -->
+            <li><a href="../aboutUs/aboutUs.html">About Us</a></li> 
+            <li><a href="../feedback/feedback.html">Contact</a></li>
+            <li><a href="../register/register.html" class="cta-button">Sign Up</a></li>
+            <li><a href="../login/login.html" class="cta-button">Sign In</a></li>
+        </ul>
+    </nav>
+  <h1>Find Your Teammates</h1>
+
+  <div id="profiles">
+    <!-- Profile cards will be inserted here dynamically -->
+  </div>
+
+  <!-- Modal for full profile details -->
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="close">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="team.js"></script>
+</body>
+</html>
+

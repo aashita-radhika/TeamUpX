@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <nav class="navbar">
+      <div class="logo">TeamUpX</div>
+      <ul class="nav-links">
+        <li><a href="../homepage.html">Home</a></li>
+        <li><a href="./profile.html">Create Profile</a></li>
+        <li><a href="../FindTeam/team.html">Find Teammates</a></li>
+        <li><a href="../Discussion/chat.html">Join Discussion Forum</a></li>
+        <li><a href="../aboutUs/aboutUs.html">About Us</a></li> 
+        <li><a href="../feedback/feedback.html">Contact</a></li>
+        <li>
+          <a href="../register/register.html" class="cta-button">Sign Up</a>
+        </li>
+        <li><a href="../login/login.html" class="cta-button">Sign In</a></li>
+      </ul>
+    </nav>
+
+    <h2>Create Your Profile</h2>
+    <form id="profileForm">
+        <input type="text" name="fullName" placeholder="Full Name" required><br>
+        <input type="text" name="college" placeholder="College"><br>
+        <input type="text" name="yearOfStudy" placeholder="Year of Study"><br>
+        <textarea name="bio" placeholder="Bio"></textarea><br>
+        <input type="text" name="skills" placeholder="Skills (comma-separated)"><br>
+        <input type="text" name="pastExperience" placeholder="Past Experience"><br>
+        <input type="text" name="achievements" placeholder="Achievements"><br>
+        <input type="text" name="resume" placeholder="Resume Link"><br>
+        <input type="text" name="github" placeholder="GitHub Link"><br>
+        <input type="text" name="linkedIn" placeholder="LinkedIn Link"><br>
+        <button type="submit">Save Profile</button>
+    </form>
+
+    <!-- External JavaScript -->
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background: #1f1f2e;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li .cta-button:hover {
+  background: #3c3c5e;
+}
+
+.cta-button {
+  background-color: #fca311;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #ff9900;
+}
+
+
+body {
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  /* padding-top: 80px; space for navbar */
+}
+
+/* Heading */
+h2 {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2.4rem;
+  color: #14213d;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Container */
+form {
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Input Fields */
+form input,
+form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fefefe;
+  transition: border 0.3s, background-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #fca311;
+  background-color: #f0f8ff;
+  outline: none;
+}
+
+/* Textarea */
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit Button */
+form button {
+  background-color: #fca311;
+  color: white;
+  font-size: 1rem;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #ff9900;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  form {
+    padding: 2rem 1.5rem;
+  }
+}

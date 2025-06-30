@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeamUpX - Feedback</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(to right, #14213d, #1d3557);
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .form-section {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .cta-main {
+      background-color: #fca311;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+
+    .cta-main:hover {
+      background-color: #ff9900;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .thank-you {
+      display: none;
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      padding: 2rem 3rem;
+      background: #fff;
+      color: #1f1f2e;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body.sent .wrapper {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px);
+    }
+
+    body.sent .thank-you {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .wrapper {
+        padding: 1.5rem;
+        margin: 1.5rem;
+      }
+
+      form {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .cta-main {
+        width: 100%;
+        text-align: center;
+      }
+
+      .thank-you {
+        width: 90%;
+        font-size: 1.6rem;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      .thank-you {
+        font-size: 1.4rem;
+        padding: 1.2rem;
+      }
+
+      input, textarea {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>We'd love your feedback!</h1>
+    <p>Tell us what you think or suggest a feature</p>
+  </header>
+
+  <div class="wrapper">
+    <form id="feedbackForm">
+      <div class="form-section">
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Write your feedback here..."></textarea>
+      </div>
+      <div class="form-section">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Jenna Hart" />
+        <div class="error-message" id="nameError"></div>
+
+        <label for="email" style="margin-top:1rem;">Your Email</label>
+        <input type="email" id="email" placeholder="jenna@example.com" />
+        <div class="error-message" id="emailError"></div>
+
+        <button class="cta-main" id="sendBtn">Send</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="thank-you">🎉 Thanks for your message!</div>
+
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+
+      nameError.textContent = "";
+      emailError.textContent = "";
+
+      let isValid = true;
+
+      if (name.value.trim() === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+      }
+
+      if (email.value.trim() === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        emailError.textContent = "Enter a valid email";
+        isValid = false;
+      }
+
+      if (message.value.trim() === "") {
+        alert("Message cannot be empty");
+        isValid = false;
+      }
+
+      if (isValid) {
+        const feedbackData = {
+          name: name.value.trim(),
+          email: email.value.trim(),
+          message: message.value.trim()
+        };
+
+        fetch('/feedback', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(feedbackData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Feedback submitted:', data);
+          document.body.classList.add("sent");
+        })
+        .catch(error => {
+          console.error('Error submitting feedback:', error);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
