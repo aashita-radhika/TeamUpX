@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/profile');
 
-const JWT_SECRET = 'avanimathur01'; // Use env variable in production
+const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET;
 
 // Register Route
 router.post('/register', async (req, res) => {
