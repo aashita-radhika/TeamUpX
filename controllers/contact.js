@@ -1,7 +1,7 @@
-const Contact = require('../models/contact.js')
-const asyncWrapper = require('../middleware/async');
+const asyncHandler = require('express-async-handler');
+const Contact = require('../models/contact.js');
 
-const handleContact = asyncWrapper(async (req, res) => {
+const handleContact = asyncHandler(async (req, res) => {
     const { name, email, message } = req.body;
 
     // Validate required fields
@@ -18,14 +18,9 @@ const handleContact = asyncWrapper(async (req, res) => {
     // Create a new contact entry
     const newContact = new Contact({ name, email, message });
 
-    try {
-        await newContact.save();
-        console.log('Message saved successfully');
-        return res.status(201).json({ msg: 'Message received', contact: newContact });
-    } catch (error) {
-        console.error('Error saving message:', error.message);
-        return res.status(500).json({ msg: error.message });
-    }
+    await newContact.save();
+    console.log('Message saved successfully');
+    res.status(201).json({ msg: 'Message received', contact: newContact });
 });
 
 module.exports = {
